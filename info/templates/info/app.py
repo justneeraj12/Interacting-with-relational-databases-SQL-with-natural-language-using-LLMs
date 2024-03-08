@@ -2,10 +2,10 @@ from flask import Flask, render_template, request, jsonify
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-#model = AutoModelForCausalLM.from_pretrained("PipableAI/pipSQL-1.3b", device_map="auto", offload_folder="offload")
-#mps_device = torch.device("mps")
-#model = model.to(mps_device)
-#tokenizer = AutoTokenizer.from_pretrained("PipableAI/pipSQL-1.3b")
+model = AutoModelForCausalLM.from_pretrained("PipableAI/pipSQL-1.3b", device_map="auto", offload_folder="offload")
+mps_device = torch.device("mps")
+model = model.to(mps_device)
+tokenizer = AutoTokenizer.from_pretrained("PipableAI/pipSQL-1.3b")
 
 app = Flask(__name__)
 prompt = f"""<schema>
